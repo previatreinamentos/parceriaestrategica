@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação de Parceria Estratégica - Previa</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans for premium SaaS UI appearance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons for premium vector icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        previaTeal: '#0097A8',
+                        previaTealDark: '#007C8A',
+                        previaOrange: '#FF6903',
+                        previaOrangeDark: '#E05600',
+                        previaLight: '#F5F7F9',
+                        previaMid: '#DDE3E8',
+                        previaDark: '#2F3B45',
+                        previaBgDark: '#1A2329'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    aspectRatio: {
+                        '16/9': '16 / 9',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #F5F7F9;
+        }
+        /* Elegant smooth slide transitions */
+        .slide-transition {
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+        }
+        /* Custom slide bar styling */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #F5F7F9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #0097A8;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between overflow-x-hidden text-previaDark antialiased selection:bg-previaTeal selection:text-white">
+
+    <!-- GLOBAL HEADER / BRAND BAR -->
+    <header class="bg-white border-b border-previaMid px-4 py-3 lg:px-8 shadow-sm z-30 select-none">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+                <!-- Premium Custom Brand Logo -->
+                <div class="flex items-center gap-2 bg-gradient-to-r from-previaTeal to-previaTealDark text-white px-3.5 py-1.5 rounded-xl font-bold tracking-wide shadow-md shadow-previaTeal/25">
+                    <i class="fa-solid fa-square-poll-vertical text-lg animate-pulse"></i>
+                    <span class="text-lg">PREVIA</span>
+                </div>
+                <div class="h-6 w-px bg-previaMid hidden sm:block"></div>
+                <span class="text-xs font-semibold text-previaDark/60 uppercase tracking-widest hidden sm:inline-block">
+                    Programa de Parcerias Estratégicas
+                </span>
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <!-- Slide Selection Dropdown -->
+                <div class="flex items-center gap-1.5 bg-previaLight border border-previaMid px-2 py-1 rounded-lg">
+                    <span class="text-[10px] font-bold text-previaDark/50 uppercase tracking-wider hidden lg:inline">Slide:</span>
+                    <select id="slideSelector" onchange="goToSlide(parseInt(this.value))" class="bg-transparent text-xs font-semibold text-previaDark focus:outline-none cursor-pointer">
+                        <option value="1">1. Quem é a Previa</option>
+                        <option value="2">2. Sobre o Fundador</option>
+                        <option value="3">3. Números & Soluções</option>
+                        <option value="4">4. O Cenário Atual</option>
+                        <option value="5">5. A Solução Previa</option>
+                        <option value="6">6. Experiência do Aluno</option>
+                        <option value="7">7. Gestão de Instrutores</option>
+                        <option value="8">8. Painel de Controle</option>
+                        <option value="9">9. Parceria Estratégica</option>
+                        <option value="10">10. Risco Zero</option>
+                        <option value="11">11. Modelo de Receita</option>
+                        <option value="12">12. Construir Parceria</option>
+                    </select>
+                </div>
+                <!-- Interactive Screen Mode Controls -->
+                <button onclick="toggleFullscreen()" class="p-1.5 bg-previaLight hover:bg-previaMid border border-previaMid rounded-lg text-xs font-semibold text-previaDark transition" title="Modo Apresentação (Tela Cheia)">
+                    <i id="fsIcon" class="fa-solid fa-expand text-previaDark/80"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT VIEWPORT CONTAINER -->
+    <main class="flex-grow flex flex-col justify-center items-center px-2 py-4 lg:p-6 w-full max-w-7xl mx-auto select-none">
+        
+        <!-- Interactive Progress Bar at the top of the presentation window -->
+        <div class="w-full max-w-7xl mb-2.5 flex gap-1 px-1">
+            <div class="progress-indicator h-1.5 flex-1 rounded-full bg-previaMid transition-all duration-300" data-slide="1"></div>
+            <div class="progress-indicator h-1.5 flex-1 rounded-full bg-previaMid transition-all duration-300" data-slide="2"></div>
+            <div class="progress-indicator h-1.5 flex-1 rounded-full bg-previaMid transition-all duration-300" data-slide="3"></div>
+            <div class="progress-indicator h-1.5 flex-1 rounded-full bg-previaMid transition-all duration-300" data-slide="4"></div>
+            <div class="progress-indicator h-1.5 flex-1 rounded-full bg-previaMid transition-all duration-300" data-slide="5"></div>
+            <div class="progress-indicator h-1.5 flex-1 rounded-full bg-previaMid transition-all duration-300" data-slide="6"></div>
+            <div class="progress-indicator h-1.5 flex-1 rounded-full bg-previaMid transition-all duration-300" data-slide="7"></div>
+            <div class="progress-indicator h-1.5 flex-1 rounded-full bg-previaMid transition-all duration-300" data-slide="8"></div>
+            <div class="progress-indicator h-1.5 flex-1 rounded-full bg-previaMid transition-all duration-300" data-slide="9"></div>
+            <div class="progress-indicator h-1.5 flex-1 rounded-full bg-previaMid transition-all duration-300" data-slide="10"></div>
+            <div class="progress-indicator h-1.5 flex-1 rounded-full bg-previaMid transition-all duration-300" data-slide="11"></div>
+            <div class="progress-indicator h-1.5 flex-1 rounded-full bg-previaMid transition-all duration-300" data-slide="12"></div>
+        </div>
+
+        <!-- The Deck Card (Enforces aspect-ratio on desktop but expands gracefully on smaller displays) -->
+        <div id="deckContainer" class="w-full bg-white rounded-2xl shadow-2xl border border-previaMid/60 aspect-none lg:aspect-16/9 overflow-hidden flex flex-col relative min-h-[520px] lg:min-h-0">
+            
+            <!-- STAGE / SLIDES CONTAINER -->
+            <div id="slides-container" class="flex-grow relative overflow-hidden h-full">
+
+                <!-- SLIDE 1: QUEM É A PREVIA (BRAND & FOCUS) -->
+                <div id="slide-1" class="slide-element absolute inset-0 w-full h-full p-6 lg:p-12 flex flex-col justify-between bg-gradient-to-br from-white via-previaLight to-white opacity-100 z-10 slide-transition">
+                    <div class="my-auto space-y-4 lg:space-y-6">
+                        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-previaTeal/10 text-previaTeal">
+                            <i class="fa-solid fa-building-columns"></i> Quem é a Previa
+                        </span>
+                        <h1 class="text-3xl lg:text-4xl font-extrabold text-previaDark leading-tight">
+                            Previa: Tecnologia, Educação e Mobilidade para <span class="text-previaTeal">Transformar</span> a Formação de Condutores
+                        </h1>
+                        <p class="text-sm lg:text-base text-previaDark/80 leading-relaxed max-w-4xl">
+                            A Previa é uma empresa especializada em mobilidade, educação para o trânsito e desenvolvimento de soluções tecnológicas para formação e capacitação de condutores.
+                        </p>
+                        <p class="text-sm lg:text-base text-previaDark/80 leading-relaxed max-w-4xl">
+                            Atuamos em todo o Brasil por meio de uma rede de instrutores homologados pelo DETRAN, combinando treinamentos presenciais, cursos digitais, análise do perfil do motorista, consultoria em mobilidade e uma plataforma própria de gestão e aprendizagem.
+                        </p>
+                        <div class="p-4 bg-previaTeal/5 border-l-4 border-previaTeal rounded-r-xl max-w-4xl">
+                            <p class="text-sm font-semibold text-previaDark">
+                                Nosso objetivo é tornar a formação de condutores mais eficiente, acessível e conectada às necessidades das pessoas e organizações, utilizando tecnologia, dados e atendimento humanizado para gerar resultados reais.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2: O FUNDADOR -->
+                <div id="slide-2" class="slide-element absolute inset-0 w-full h-full p-6 lg:p-10 flex flex-col justify-between bg-white opacity-0 pointer-events-none slide-transition overflow-y-auto lg:overflow-y-hidden custom-scrollbar">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto w-full">
+                        
+                        <!-- Left Column: Amauri Profile Photo Slot -->
+                        <div class="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left space-y-3">
+                            <div class="relative">
+                                <div class="w-32 h-32 lg:w-40 lg:h-40 border-4 border-previaTeal bg-previaLight rounded-2xl shadow-xl flex flex-col items-center justify-center relative overflow-hidden transition-all duration-300">
+                                    <img id="fotoAmauri" src="https://lh3.googleusercontent.com/pw/AP1GczOdDl-B7oH5OqNTZZJb3HnxwyPbYV64cwPUP5fe0PlYkdF3sh_APJ4jRcnQa6rDXq7EEjtoF52plSYGf6T7Ij_3cZDtidss-ZtRsjkWrSNCUJ1EavGqqnz-aS1cAXSEhNTceejwm-QPruXgnIUWOVA5=w1063-h779-s-no-gm?authuser=0" alt="Amauri" class="absolute inset-0 w-full h-full object-cover">
+                                </div>
+                                <!-- Badge "15+ Anos" -->
+                                <div class="absolute -bottom-2 -right-2 bg-previaOrange text-white text-[10px] font-bold px-2.5 py-1 rounded-lg shadow-md z-20">
+                                    15+ Anos de Exp.
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-extrabold text-previaDark">Amauri</h3>
+                                <p class="text-xs text-previaTeal font-bold uppercase tracking-wide">Fundador da Previa</p>
+                                <p class="text-[11px] text-previaDark/60 mt-0.5">Especialista em Mobilidade e Educação para o Trânsito</p>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Biography Details & Custom Gallery -->
+                        <div class="lg:col-span-8 space-y-3">
+                            <h2 class="text-xl font-extrabold text-previaDark flex items-center gap-2">
+                                <span class="w-6 h-1 bg-previaTeal rounded"></span>
+                                Autoridade Técnica e Gestão Pública
+                            </h2>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                                <div class="p-2.5 bg-previaLight rounded-xl border border-previaMid flex gap-2.5 items-start">
+                                    <i class="fa-solid fa-award text-previaOrange text-base mt-0.5 shrink-0 w-4"></i>
+                                    <p class="text-[11px] text-previaDark/80 leading-relaxed"><strong class="text-previaDark block">Ex-Coordenador DETRAN-SP</strong> Educação para o Trânsito.</p>
+                                </div>
+                                <div class="p-2.5 bg-previaLight rounded-xl border border-previaMid flex gap-2.5 items-start">
+                                    <i class="fa-solid fa-globe text-previaOrange text-base mt-0.5 shrink-0 w-4"></i>
+                                    <p class="text-[11px] text-previaDark/80 leading-relaxed"><strong class="text-previaDark block">Observatório Nacional de Segurança Viária</strong> Integrante ativo de trânsito.</p>
+                                </div>
+                                <div class="p-2.5 bg-previaLight rounded-xl border border-previaMid flex gap-2.5 items-start">
+                                    <i class="fa-solid fa-chalkboard-user text-previaOrange text-base mt-0.5 shrink-0 w-4"></i>
+                                    <p class="text-[11px] text-previaDark/80 leading-relaxed"><strong class="text-previaDark block">Instrutor de Trânsito</strong> Atuação prática com alunos.</p>
+                                </div>
+                                <div class="p-2.5 bg-previaLight rounded-xl border border-previaMid flex gap-2.5 items-start">
+                                    <i class="fa-solid fa-shield-halved text-previaOrange text-base mt-0.5 shrink-0 w-4"></i>
+                                    <p class="text-[11px] text-previaDark/80 leading-relaxed"><strong class="text-previaDark block">Segurança Viária</strong> Especialista em processos modernos.</p>
+                                </div>
+                            </div>
+
+                            <!-- 4 SMALL TRAINING IMAGES SECTION (SPACER) -->
+                            <div class="pt-2 border-t border-previaMid/50">
+                                <p class="text-[10px] font-bold text-previaDark/65 uppercase tracking-wide mb-1.5 flex items-center gap-1">
+                                    <i class="fa-solid fa-camera text-previaTeal"></i> Fotos de Treinamentos Práticos
+                                </p>
+                                <div class="grid grid-cols-4 gap-2">
+                                    <!-- Image 1 -->
+                                    <div class="aspect-video bg-previaLight rounded-lg border border-previaMid overflow-hidden relative group shadow-sm">
+                                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=200&auto=format&fit=crop" alt="[Imagem de Treinamento Teórico]" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                                        <span class="absolute bottom-1 left-1 bg-previaDark/85 text-[8px] text-white px-1 py-0.5 rounded font-medium">Teoria</span>
+                                    </div>
+                                    <!-- Image 2 -->
+                                    <div class="aspect-video bg-previaLight rounded-lg border border-previaMid overflow-hidden relative group shadow-sm">
+                                        <img src="https://images.unsplash.com/photo-1508962914676-134849a727f0?q=80&w=200&auto=format&fit=crop" alt="[Imagem de Treinamento Prático]" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                                        <span class="absolute bottom-1 left-1 bg-previaDark/85 text-[8px] text-white px-1 py-0.5 rounded font-medium">Prática</span>
+                                    </div>
+                                    <!-- Image 3 -->
+                                    <div class="aspect-video bg-previaLight rounded-lg border border-previaMid overflow-hidden relative group shadow-sm">
+                                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=200&auto=format&fit=crop" alt="[Imagem de Mentoria]" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                                        <span class="absolute bottom-1 left-1 bg-previaDark/85 text-[8px] text-white px-1 py-0.5 rounded font-medium">Mentoria</span>
+                                    </div>
+                                    <!-- Image 4 -->
+                                    <div class="aspect-video bg-previaLight rounded-lg border border-previaMid overflow-hidden relative group shadow-sm">
+                                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=200&auto=format&fit=crop" alt="[Imagem de Avaliação]" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                                        <span class="absolute bottom-1 left-1 bg-previaDark/85 text-[8px] text-white px-1 py-0.5 rounded font-medium">Avaliação</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SLIDE 3: NUMEROS DA PREVIA & PORTFOLIO -->
+                <div id="slide-3" class="slide-element absolute inset-0 w-full h-full p-6 lg:p-12 flex flex-col justify-between bg-gradient-to-br from-white to-previaLight opacity-0 pointer-events-none slide-transition">
+                    <div class="my-auto space-y-4 lg:space-y-6">
+                        <div class="text-center space-y-2">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-previaTeal/10 text-previaTeal">
+                                <i class="fa-solid fa-chart-line"></i> Escopo do Negócio
+                            </span>
+                            <h2 class="text-2xl lg:text-3xl font-extrabold text-previaDark">
+                                Números & Estrutura da Previa
+                            </h2>
+                        </div>
+                        
+                        <!-- Solutions Cards Grid -->
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-4">
+                            <div class="bg-white p-4 rounded-2xl border border-previaMid text-center shadow-sm flex flex-col items-center justify-center space-y-2">
+                                <div class="w-10 h-10 rounded-full bg-previaTeal/10 text-previaTeal flex items-center justify-center">
+                                    <i class="fa-solid fa-map-location-dot text-lg"></i>
+                                </div>
+                                <h4 class="text-xs font-extrabold text-previaDark">Cobertura Nacional</h4>
+                                <p class="text-[10px] text-previaDark/65">Presença consolidada em todo o Brasil.</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-2xl border border-previaMid text-center shadow-sm flex flex-col items-center justify-center space-y-2">
+                                <div class="w-10 h-10 rounded-full bg-previaTeal/10 text-previaTeal flex items-center justify-center">
+                                    <i class="fa-solid fa-id-card text-lg"></i>
+                                </div>
+                                <h4 class="text-xs font-extrabold text-previaDark">Instrutores DETRAN</h4>
+                                <p class="text-[10px] text-previaDark/65">Homologados e altamente capacitados.</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-2xl border border-previaMid text-center shadow-sm flex flex-col items-center justify-center space-y-2">
+                                <div class="w-10 h-10 rounded-full bg-previaTeal/10 text-previaTeal flex items-center justify-center">
+                                    <i class="fa-solid fa-cloud text-lg"></i>
+                                </div>
+                                <h4 class="text-xs font-extrabold text-previaDark">Plataforma Própria</h4>
+                                <p class="text-[10px] text-previaDark/65">Tecnologia LXP 100% digital e ágil.</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-2xl border border-previaMid text-center shadow-sm flex flex-col items-center justify-center space-y-2">
+                                <div class="w-10 h-10 rounded-full bg-previaTeal/10 text-previaTeal flex items-center justify-center">
+                                    <i class="fa-solid fa-play text-lg"></i>
+                                </div>
+                                <h4 class="text-xs font-extrabold text-previaDark">Cursos On-Demand</h4>
+                                <p class="text-[10px] text-previaDark/65">Ao vivo e sob demanda para os alunos.</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-2xl border border-previaMid text-center shadow-sm flex flex-col items-center justify-center space-y-2">
+                                <div class="w-10 h-10 rounded-full bg-previaTeal/10 text-previaTeal flex items-center justify-center">
+                                    <i class="fa-solid fa-chart-pie text-lg"></i>
+                                </div>
+                                <h4 class="text-xs font-extrabold text-previaDark">Relatórios em Real-Time</h4>
+                                <p class="text-[10px] text-previaDark/65">Acompanhamento analítico completo.</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-2xl border border-previaMid text-center shadow-sm flex flex-col items-center justify-center space-y-2">
+                                <div class="w-10 h-10 rounded-full bg-previaTeal/10 text-previaTeal flex items-center justify-center">
+                                    <i class="fa-solid fa-handshake-angle text-lg"></i>
+                                </div>
+                                <h4 class="text-xs font-extrabold text-previaDark">Consultoria Especializada</h4>
+                                <p class="text-[10px] text-previaDark/65">Trânsito seguro e sustentável.</p>
+                            </div>
+                        </div>
+
+                        <!-- Impact Phrase -->
+                        <div class="p-4 bg-previaDark text-white rounded-2xl shadow-sm text-center">
+                            <p class="text-xs lg:text-sm font-semibold italic text-slate-200">
+                                "Mais do que uma empresa de treinamentos, a Previa é um ecossistema de mobilidade que une tecnologia, educação e experiência para transformar a jornada dos condutores e gerar valor para empresas, instituições de ensino e alunos."
+                            </p>
+                        </div>
+                        
+                        <!-- Client Logos footer -->
+                        <div class="border-t border-previaMid/60 pt-3 text-center">
+                            <span class="text-[10px] text-previaDark/50 uppercase font-bold tracking-wider block mb-2">Empresas de todo o Brasil confiam na Previa para desenvolver a cultura de segurança viária e formação de condutores</span>
+                            <div class="flex flex-wrap justify-center items-center gap-4 lg:gap-8 opacity-65">
+                                <div class="flex items-center gap-1.5 font-bold text-xs"><i class="fa-solid fa-building text-previaTeal"></i> Grupo Educacional Paulista</div>
+                                <div class="flex items-center gap-1.5 font-bold text-xs"><i class="fa-solid fa-graduation-cap text-previaTeal"></i> Rede Universitária EAD</div>
+                                <div class="flex items-center gap-1.5 font-bold text-xs"><i class="fa-solid fa-truck text-previaTeal"></i> Operadores Logísticos</div>
+                                <div class="flex items-center gap-1.5 font-bold text-xs"><i class="fa-solid fa-chalkboard text-previaTeal"></i> Faculdades Integradas</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 4: O CENÁRIO ATUAL -->
+                <div id="slide-4" class="slide-element absolute inset-0 w-full h-full p-6 lg:p-12 flex flex-col justify-between bg-white opacity-0 pointer-events-none slide-transition">
+                    <div class="my-auto space-y-6">
+                        <div class="text-center lg:text-left">
+                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-previaOrange/10 text-previaOrange">
+                                <i class="fa-solid fa-triangle-exclamation"></i> O Cenário Atual
+                            </span>
+                            <h2 class="text-2xl lg:text-3xl font-extrabold text-previaDark mt-2">
+                                Uma Necessidade Real dos Alunos. Uma Oportunidade para Sua Instituição.
+                            </h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                            <!-- Left: Student pain points -->
+                            <div class="bg-red-50/50 p-6 rounded-2xl border border-red-100 space-y-4">
+                                <h3 class="text-lg font-bold text-red-900 flex items-center gap-2">
+                                    <i class="fa-solid fa-face-frown text-red-600"></i> Dificuldades Enfrentadas pelo Aluno
+                                </h3>
+                                <ul class="space-y-3.5">
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center text-red-700 text-xs shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></div>
+                                        <p class="text-xs lg:text-sm text-red-950/80"><strong class="font-semibold text-red-950">Falta de Tempo:</strong> Dificuldade para conciliar a agenda da autoescola com a faculdade e trabalho.</p>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center text-red-700 text-xs shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></div>
+                                        <p class="text-xs lg:text-sm text-red-950/80"><strong class="font-semibold text-red-950">Burocracia  Excessiva:</strong> Processos complexos e pouco transparentes na obtenção da carteira.</p>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center text-red-700 text-xs shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></div>
+                                        <p class="text-xs lg:text-sm text-red-950/80"><strong class="font-semibold text-red-950">Agendamento de Aulas:</strong> Sem flexibilidade ou canais digitais práticos de agendamento.</p>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Right: Institution needs -->
+                            <div class="bg-emerald-50/50 p-6 rounded-2xl border border-emerald-100 space-y-4">
+                                <h3 class="text-lg font-bold text-emerald-900 flex items-center gap-2">
+                                    <i class="fa-solid fa-bullseye text-emerald-600"></i> Desafios da Instituição de Ensino
+                                </h3>
+                                <ul class="space-y-3.5">
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 text-xs shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></div>
+                                        <p class="text-xs lg:text-sm text-emerald-950/80"><strong class="font-semibold text-emerald-950">Busca por Diferenciação:</strong> Necessidade de criar valor percebido no mercado saturado.</p>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 text-xs shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></div>
+                                        <p class="text-xs lg:text-sm text-emerald-950/80"><strong class="font-semibold text-emerald-950">Atração e Retenção:</strong> Criar benefícios que resolvam problemas práticos na vida dos estudantes.</p>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 text-xs shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></div>
+                                        <p class="text-xs lg:text-sm text-emerald-950/80"><strong class="font-semibold text-emerald-950">Novas Fontes de Receita:</strong> Gerar receita livre de investimento ou aumento do corpo docente.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 5: A SOLUÇÃO PREVIA -->
+                <div id="slide-5" class="slide-element absolute inset-0 w-full h-full p-6 lg:p-12 flex flex-col justify-between bg-gradient-to-tr from-white to-previaLight opacity-0 pointer-events-none slide-transition">
+                    <div class="my-auto space-y-6">
+                        <div class="text-center">
+                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-previaTeal/10 text-previaTeal">
+                                <i class="fa-solid fa-circle-check"></i> Nossa Solução
+                            </span>
+                            <h2 class="text-2xl lg:text-3xl font-extrabold text-previaDark mt-2">
+                                Uma Solução Completa Sem Trabalho Para Sua Instituição
+                            </h2>
+                            <p class="text-xs lg:text-sm text-previaDark/70 mt-1">Nós assumimos 100% da operação para que você foque apenas em acolher o sucesso da parceria.</p>
+                        </div>
+                        
+                        <!-- Grid benefits -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+                            <div class="bg-white p-5 rounded-2xl border border-previaMid shadow-sm space-y-2">
+                                <div class="w-10 h-10 rounded-xl bg-previaTeal/10 text-previaTeal flex items-center justify-center"><i class="fa-solid fa-chalkboard-user text-xl"></i></div>
+                                <h3 class="text-sm font-extrabold text-previaDark">Instrutor Exclusivo</h3>
+                                <p class="text-xs text-previaDark/75 leading-relaxed">Profissional selecionado e focado exclusivamente no ecossistema da instituição parceira.</p>
+                            </div>
+                            <div class="bg-white p-5 rounded-2xl border border-previaMid shadow-sm space-y-2">
+                                <div class="w-10 h-10 rounded-xl bg-previaTeal/10 text-previaTeal flex items-center justify-center"><i class="fa-solid fa-car text-xl"></i></div>
+                                <h3 class="text-sm font-extrabold text-previaDark">Veículo Próprio</h3>
+                                <p class="text-xs text-previaDark/75 leading-relaxed">Frotas modernas mantidas, lavadas e seguradas inteiramente às custas da Previa.</p>
+                            </div>
+                            <div class="bg-white p-5 rounded-2xl border border-previaMid shadow-sm space-y-2">
+                                <div class="w-10 h-10 rounded-xl bg-previaTeal/10 text-previaTeal flex items-center justify-center"><i class="fa-solid fa-users text-xl"></i></div>
+                                <h3 class="text-sm font-extrabold text-previaDark">Atendimento Presencial</h3>
+                                <p class="text-xs text-previaDark/75 leading-relaxed">Pontos de suporte físico de forma amigável diretamente no polo da faculdade.</p>
+                            </div>
+                            <div class="bg-white p-5 rounded-2xl border border-previaMid shadow-sm space-y-2">
+                                <div class="w-10 h-10 rounded-xl bg-previaTeal/10 text-previaTeal flex items-center justify-center"><i class="fa-solid fa-mobile-screen-button text-xl"></i></div>
+                                <h3 class="text-sm font-extrabold text-previaDark">Atendimento Online</h3>
+                                <p class="text-xs text-previaDark/75 leading-relaxed">Suporte multicanal instantâneo e portal automatizado para agilizar requisições.</p>
+                            </div>
+                            <div class="bg-white p-5 rounded-2xl border border-previaMid shadow-sm space-y-2">
+                                <div class="w-10 h-10 rounded-xl bg-previaTeal/10 text-previaTeal flex items-center justify-center"><i class="fa-solid fa-laptop-code text-xl"></i></div>
+                                <h3 class="text-sm font-extrabold text-previaDark">Plataforma Tecnológica</h3>
+                                <p class="text-xs text-previaDark/75 leading-relaxed">Integração do agendamento à nuvem gerindo escalas automaticamente.</p>
+                            </div>
+                            <div class="bg-white p-5 rounded-2xl border border-previaMid shadow-sm space-y-2">
+                                <div class="w-10 h-10 rounded-xl bg-previaTeal/10 text-previaTeal flex items-center justify-center"><i class="fa-solid fa-gears text-xl"></i></div>
+                                <h3 class="text-sm font-extrabold text-previaDark">Gestão Completa</h3>
+                                <p class="text-xs text-previaDark/75 leading-relaxed">Burocracia, licenças municipais e homologação do DETRAN por nossa conta.</p>
+                            </div>
+                        </div>
+
+                        <div class="text-center italic font-bold text-previaTeal text-xs lg:text-sm">
+                            "Sua instituição oferece o benefício relevante aos alunos. A Previa executa todo o trabalho."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 6: A EXPERIÊNCIA DO ALUNO -->
+                <div id="slide-6" class="slide-element absolute inset-0 w-full h-full p-6 lg:p-12 flex flex-col justify-between bg-white opacity-0 pointer-events-none slide-transition">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto">
+                        
+                        <!-- Left: App features list -->
+                        <div class="lg:col-span-7 space-y-4 lg:space-y-6">
+                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-previaTeal/10 text-previaTeal">
+                                <i class="fa-solid fa-mobile-retro"></i> Inovação Móvel
+                            </span>
+                            <h2 class="text-2xl lg:text-3xl font-extrabold text-previaDark">
+                                A CNH na Palma da Mão do Seu Estudante
+                            </h2>
+                            <p class="text-xs lg:text-sm text-previaDark/80 leading-relaxed">
+                                Reduzimos o atrito do processo tradicional de habilitação. Através do nosso aplicativo, o aluno possui o controle autônomo sobre sua jornada de aprendizagem prática:
+                            </p>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                                <div class="flex gap-2.5 items-start">
+                                    <div class="w-6 h-6 rounded-full bg-previaTeal/15 text-previaTeal flex items-center justify-center shrink-0 text-xs"><i class="fa-solid fa-user-lock"></i></div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-previaDark">Acesso Simples por CPF</h4>
+                                        <p class="text-[11px] text-previaDark/70">Sem senhas complicadas ou burocracia para entrar.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-2.5 items-start">
+                                    <div class="w-6 h-6 rounded-full bg-previaTeal/15 text-previaTeal flex items-center justify-center shrink-0 text-xs"><i class="fa-solid fa-calendar-days"></i></div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-previaDark">Grade de Horários Dinâmica</h4>
+                                        <p class="text-[11px] text-previaDark/70">Visualização em tempo real das agendas de instrução.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-2.5 items-start">
+                                    <div class="w-6 h-6 rounded-full bg-previaTeal/15 text-previaTeal flex items-center justify-center shrink-0 text-xs"><i class="fa-solid fa-sliders"></i></div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-previaDark">Agendamento & Cancelamento</h4>
+                                        <p class="text-[11px] text-previaDark/70">Autonomia total para agendar ou reagendar as aulas.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-2.5 items-start">
+                                    <div class="w-6 h-6 rounded-full bg-previaTeal/15 text-previaTeal flex items-center justify-center shrink-0 text-xs"><i class="fa-solid fa-spinner"></i></div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-previaDark">Progresso Visual do Processo</h4>
+                                        <p class="text-[11px] text-previaDark/70">Acompanhamento transparente das aulas e avaliações.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Beautiful interactive mockup of smartphone application -->
+                        <div class="lg:col-span-5 flex justify-center">
+                            <div class="relative w-[220px] h-[400px] bg-previaDark rounded-[36px] p-2.5 shadow-2xl border-4 border-slate-700/80">
+                                <!-- Smartphone Speaker / Notch -->
+                                <div class="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-4 bg-previaDark rounded-full z-20 flex items-center justify-center">
+                                    <div class="w-10 h-1 bg-gray-600 rounded"></div>
+                                </div>
+                                
+                                <!-- Inside Mock App -->
+                                <div class="w-full h-full bg-previaLight rounded-[28px] overflow-hidden flex flex-col justify-between p-3.5 relative">
+                                    <!-- Status bar mockup -->
+                                    <div class="flex justify-between items-center text-[8px] text-previaDark/65 font-bold pt-1">
+                                        <span>09:41 AM</span>
+                                        <div class="flex items-center gap-1">
+                                            <i class="fa-solid fa-signal"></i>
+                                            <i class="fa-solid fa-wifi"></i>
+                                            <i class="fa-solid fa-battery-full"></i>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- App Brand Header -->
+                                    <div class="flex items-center justify-between border-b border-previaMid/60 pb-2 mt-2">
+                                        <span class="text-[10px] font-extrabold text-previaTeal flex items-center gap-1">
+                                            <i class="fa-solid fa-square-poll-vertical"></i> PREVIA
+                                        </span>
+                                        <span class="text-[8px] bg-previaOrange/15 text-previaOrange px-2 py-0.5 rounded-full font-extrabold">ALUNO</span>
+                                    </div>
+                                    
+                                    <!-- Interactive Dynamic UI block of app -->
+                                    <div class="flex-grow flex flex-col justify-center space-y-2 py-2">
+                                        <div class="bg-white p-2 rounded-xl border border-previaMid text-left shadow-sm">
+                                            <p class="text-[7px] text-previaDark/50 font-bold uppercase">Próxima Aula</p>
+                                            <p class="text-[10px] font-bold text-previaDark mt-0.5">Amanhã, às 14:00h</p>
+                                            <div class="flex items-center gap-1.5 mt-1 text-[8px] text-previaTeal">
+                                                <i class="fa-solid fa-car"></i>
+                                                <span>Instrutor: Marcos Silva</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="bg-white p-2 rounded-xl border border-previaMid text-left shadow-sm space-y-1">
+                                            <p class="text-[7px] text-previaDark/50 font-bold uppercase">Progresso Prático</p>
+                                            <div class="w-full bg-previaLight h-1.5 rounded-full overflow-hidden">
+                                                <div class="bg-gradient-to-r from-previaTeal to-previaOrange h-full w-[60%]"></div>
+                                            </div>
+                                            <div class="flex justify-between text-[7px] font-bold text-previaDark/70">
+                                                <span>12 de 20 aulas</span>
+                                                <span class="text-previaTeal">60% Concluído</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Action Button in Mock -->
+                                    <button class="w-full py-1.5 bg-previaTeal hover:bg-previaTealDark text-white font-extrabold text-[9px] rounded-lg transition shadow-md shadow-previaTeal/20">
+                                        <i class="fa-solid fa-calendar-check mr-1"></i> Agendar Nova Aula
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SLIDE 7: GESTÃO INTELIGENTE DOS INSTRUTORES -->
+                <div id="slide-7" class="slide-element absolute inset-0 w-full h-full p-6 lg:p-12 flex flex-col justify-between bg-gradient-to-tr from-previaLight via-white to-previaLight opacity-0 pointer-events-none slide-transition">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto">
+                        
+                        <!-- Left: Visual elements of calendar schedule -->
+                        <div class="lg:col-span-5 flex justify-center order-last lg:order-first">
+                            <div class="w-full max-w-[320px] bg-white rounded-2xl shadow-xl border border-previaMid p-5 space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="text-sm font-extrabold text-previaDark flex items-center gap-1.5">
+                                        <i class="fa-solid fa-clipboard-user text-previaTeal"></i> Escala do Instrutor
+                                    </h3>
+                                    <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">Ativo</span>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center p-2.5 bg-previaLight rounded-xl border-l-4 border-previaTeal text-xs">
+                                        <div>
+                                            <p class="font-bold">Marcos Silva</p>
+                                            <p class="text-[10px] text-previaDark/65">Aulas Agendadas: 6</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <span class="text-[10px] font-bold text-previaTeal">80% Ocupação</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between items-center p-2.5 bg-previaLight rounded-xl border-l-4 border-previaOrange text-xs">
+                                        <div>
+                                            <p class="font-bold">Roberta Costa</p>
+                                            <p class="text-[10px] text-previaDark/65">Aulas Agendadas: 8</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <span class="text-[10px] font-bold text-previaOrange">100% Ocupação</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-previaTeal/5 p-3 rounded-xl border border-previaTeal/15 text-[11px] text-previaDark/85">
+                                    <i class="fa-solid fa-circle-nodes text-previaTeal mr-1"></i> Sincronismo automático de agendas no Portal do Instrutor garante que não ocorram choques de horários ou ociosidade.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: App features list -->
+                        <div class="lg:col-span-7 space-y-4 lg:space-y-6">
+                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-previaTeal/10 text-previaTeal">
+                                <i class="fa-solid fa-people-arrows"></i> Otimização Logística
+                            </span>
+                            <h2 class="text-2xl lg:text-3xl font-extrabold text-previaDark">
+                                Gestão Inteligente dos Instrutores
+                            </h2>
+                            <p class="text-xs lg:text-sm text-previaDark/80 leading-relaxed">
+                                Oferecemos controle absoluto sobre os horários através do Portal do Instrutor. Reduzimos a taxa de no-show e cancelamentos de última hora através de lembretes integrados:
+                            </p>
+                            
+                            <ul class="space-y-3.5">
+                                <li class="flex gap-3">
+                                    <i class="fa-solid fa-circle-check text-previaTeal text-base mt-0.5"></i>
+                                    <p class="text-xs lg:text-sm text-previaDark/80"><strong class="font-bold text-previaDark block">Atualização Automática dos Horários:</strong> Quando o aluno reagenda pelo celular, o portal do instrutor é notificado em tempo real.</p>
+                                </li>
+                                <li class="flex gap-3">
+                                    <i class="fa-solid fa-circle-check text-previaTeal text-base mt-0.5"></i>
+                                    <p class="text-xs lg:text-sm text-previaDark/80"><strong class="font-bold text-previaDark block">Melhor Ocupação de Agendas:</strong> O algoritmo direciona os alunos sequencialmente, otimizando o uso dos veículos e o tempo do instrutor.</p>
+                                </li>
+                                <li class="flex gap-3">
+                                    <i class="fa-solid fa-circle-check text-previaTeal text-base mt-0.5"></i>
+                                    <p class="text-xs lg:text-sm text-previaDark/80"><strong class="font-bold text-previaDark block">Facilidade Operacional:</strong> Os instrutores reportam faltas, pendências e enviam avaliações de desempenho de forma prática pelo celular.</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SLIDE 8: PAINEL EXCLUSIVO DA INSTITUIÇÃO -->
+                <div id="slide-8" class="slide-element absolute inset-0 w-full h-full p-6 lg:p-12 flex flex-col justify-between bg-white opacity-0 pointer-events-none slide-transition">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto">
+                        
+                        <!-- Left: Explanation of transparency -->
+                        <div class="lg:col-span-6 space-y-4 lg:space-y-6">
+                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-previaTeal/10 text-previaTeal">
+                                <i class="fa-solid fa-magnifying-glass-chart"></i> Transparência Total
+                            </span>
+                            <h2 class="text-2xl lg:text-3xl font-extrabold text-previaDark">
+                                Painel Exclusivo da Instituição Parceira
+                            </h2>
+                            <p class="text-xs lg:text-sm text-previaDark/80 leading-relaxed">
+                                Como parceiro estratégico da Previa, sua instituição possui acesso a um painel analítico administrativo de última geração para monitoramento e auditoria sem esforço operacional:
+                            </p>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="flex gap-2">
+                                    <i class="fa-solid fa-circle-dot text-previaOrange text-xs mt-1.5 text-center shrink-0"></i>
+                                    <p class="text-xs text-previaDark/80"><strong class="font-bold text-previaDark block">Mapeamento de Cadastros:</strong> Veja a quantidade de alunos ativos.</p>
+                                </div>
+                                <div class="flex gap-2">
+                                    <i class="fa-solid fa-circle-dot text-previaOrange text-xs mt-1.5 text-center shrink-0"></i>
+                                    <p class="text-xs text-previaDark/80"><strong class="font-bold text-previaDark block">Taxa de Conversão:</strong> Monitore o volume de planos adquiridos.</p>
+                                </div>
+                                <div class="flex gap-2">
+                                    <i class="fa-solid fa-circle-dot text-previaOrange text-xs mt-1.5 text-center shrink-0"></i>
+                                    <p class="text-xs text-previaDark/80"><strong class="font-bold text-previaDark block">Relatórios Financeiros:</strong> Transparência de faturamento e comissão.</p>
+                                </div>
+                                <div class="flex gap-2">
+                                    <i class="fa-solid fa-circle-dot text-previaOrange text-xs mt-1.5 text-center shrink-0"></i>
+                                    <p class="text-xs text-previaDark/80"><strong class="font-bold text-previaDark block">Indicadores de Desempenho:</strong> Gráficos amigáveis e intuitivos.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Dashboard mockup -->
+                        <div class="lg:col-span-6">
+                            <div class="w-full bg-previaLight rounded-2xl border border-previaMid shadow-lg overflow-hidden">
+                                <!-- Dashboard Header -->
+                                <div class="bg-previaDark p-3 flex justify-between items-center">
+                                    <span class="text-xs font-bold text-white flex items-center gap-1.5"><i class="fa-solid fa-chart-line text-previaTeal"></i> Painel de Desempenho</span>
+                                    <span class="text-[9px] bg-previaTeal/30 text-previaTeal px-2 py-0.5 rounded font-extrabold uppercase animate-pulse">Administração</span>
+                                </div>
+                                <!-- Dashboard content grid -->
+                                <div class="p-4 space-y-4">
+                                    <div class="grid grid-cols-3 gap-2 text-center">
+                                        <div class="bg-white p-2.5 rounded-xl border border-previaMid shadow-sm">
+                                            <p class="text-[8px] text-previaDark/65 font-bold uppercase">Alunos Cadastrados</p>
+                                            <p class="text-sm lg:text-base font-extrabold text-previaTeal mt-0.5">142</p>
+                                        </div>
+                                        <div class="bg-white p-2.5 rounded-xl border border-previaMid shadow-sm">
+                                            <p class="text-[8px] text-previaDark/65 font-bold uppercase">Aulas Realizadas</p>
+                                            <p class="text-sm lg:text-base font-extrabold text-previaDark mt-0.5">1.240</p>
+                                        </div>
+                                        <div class="bg-white p-2.5 rounded-xl border border-previaMid shadow-sm bg-gradient-to-tr from-white to-orange-50">
+                                            <p class="text-[8px] text-previaDark/65 font-bold uppercase">Comissão Acumulada</p>
+                                            <p class="text-sm lg:text-base font-extrabold text-previaOrange mt-0.5">R$ 14.200</p>
+                                        </div>
+                                    </div>
+                                    <!-- A mock chart graphic in pure HTML -->
+                                    <div class="bg-white p-3 rounded-xl border border-previaMid space-y-2">
+                                        <p class="text-[9px] text-previaDark/60 font-bold">Matrículas e Crescimento (Semestre)</p>
+                                        <div class="flex items-end justify-between h-16 gap-2 pt-2 px-1">
+                                            <div class="bg-previaTeal/15 w-full rounded-t animate-pulse" style="height: 35%"></div>
+                                            <div class="bg-previaTeal/20 w-full rounded-t" style="height: 50%"></div>
+                                            <div class="bg-previaTeal/30 w-full rounded-t" style="height: 45%"></div>
+                                            <div class="bg-previaTeal/55 w-full rounded-t animate-pulse" style="height: 65%"></div>
+                                            <div class="bg-previaTeal/80 w-full rounded-t" style="height: 85%"></div>
+                                            <div class="bg-previaOrange w-full rounded-t animate-bounce" style="height: 100%"></div>
+                                        </div>
+                                        <div class="flex justify-between text-[8px] text-previaDark/50 font-bold px-1 pt-1">
+                                            <span>Jan</span><span>Fev</span><span>Mar</span><span>Abr</span><span>Mai</span><span class="text-previaOrange">Jun</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SLIDE 9: A PARCERIA ESTRATÉGICA -->
+                <div id="slide-9" class="slide-element absolute inset-0 w-full h-full p-6 lg:p-12 flex flex-col justify-between bg-gradient-to-br from-white via-previaLight to-white opacity-0 pointer-events-none slide-transition">
+                    <div class="my-auto space-y-6">
+                        <div class="text-center">
+                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-previaTeal/10 text-previaTeal">
+                                <i class="fa-solid fa-arrow-up-right-dots"></i> Posicionamento
+                            </span>
+                            <h2 class="text-2xl lg:text-3xl font-extrabold text-previaDark mt-2">
+                                Agregue Valor ao Seu Polo ou Faculdade
+                            </h2>
+                            <p class="text-xs lg:text-sm text-previaDark/70 mt-1">Diferencie sua marca no cenário educacional entregando benefícios tangíveis de alta demanda social.</p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
+                            <!-- Card 1 -->
+                            <div class="bg-white p-5 rounded-2xl border border-previaMid shadow-sm text-center space-y-3">
+                                <div class="w-12 h-12 rounded-full bg-previaOrange/10 text-previaOrange flex items-center justify-center mx-auto text-xl">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                </div>
+                                <h3 class="text-sm font-extrabold text-previaDark">Benefício Exclusivo aos Alunos</h3>
+                                <p class="text-xs text-previaDark/75 leading-relaxed">Condições financeiras especiais, agilidade e acompanhamento unificado sem sair do ecossistema estudantil.</p>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="bg-white p-5 rounded-2xl border border-previaMid shadow-sm text-center space-y-3">
+                                <div class="w-12 h-12 rounded-full bg-previaTeal/10 text-previaTeal flex items-center justify-center mx-auto text-xl">
+                                    <i class="fa-solid fa-trophy"></i>
+                                </div>
+                                <h3 class="text-sm font-extrabold text-previaDark">Diferencial Competitivo Único</h3>
+                                <p class="text-xs text-previaDark/75 leading-relaxed">Sua marca associada a um ecossistema de ponta focado em inovação, tecnologia e segurança de trânsito.</p>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="bg-white p-5 rounded-2xl border border-previaMid shadow-sm text-center space-y-3">
+                                <div class="w-12 h-12 rounded-full bg-previaTeal/10 text-previaTeal flex items-center justify-center mx-auto text-xl">
+                                    <i class="fa-solid fa-heart-circle-check"></i>
+                                </div>
+                                <h3 class="text-sm font-extrabold text-previaDark">Mais Retenção e Fidelidade</h3>
+                                <p class="text-xs text-previaDark/75 leading-relaxed">Eleva a atratividade do seu polo na captação e promove maiores índices de retenção e carinho do estudante.</p>
+                            </div>
+                        </div>
+
+                        <div class="text-center italic font-semibold text-previaDark/80 text-xs">
+                            "A faculdade não muda apenas o futuro profissional do aluno. Apoia-o em suas conquistas práticas diárias."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 10: RISCO ZERO PARA O PARCEIRO -->
+                <div id="slide-10" class="slide-element absolute inset-0 w-full h-full p-6 lg:p-12 flex flex-col justify-between bg-white opacity-0 pointer-events-none slide-transition">
+                    <div class="my-auto space-y-6">
+                        <div class="text-center">
+                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-previaOrange/10 text-previaOrange">
+                                <i class="fa-solid fa-shield-halved"></i> Garantia Operacional
+                            </span>
+                            <h2 class="text-2xl lg:text-3xl font-extrabold text-previaDark mt-2">
+                                Zero Investimento. Zero Estrutura. Zero Preocupação.
+                            </h2>
+                            <p class="text-xs lg:text-sm text-previaDark/70 mt-1">A parceria estratégica ideal: risco zero, retorno maximizado e tranquilidade jurídica garantida.</p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="p-4 bg-previaLight rounded-2xl border border-previaMid text-center space-y-2">
+                                <div class="w-8 h-8 rounded-full bg-previaOrange/10 text-previaOrange flex items-center justify-center mx-auto"><i class="fa-solid fa-sack-dollar text-sm"></i></div>
+                                <h4 class="text-xs font-extrabold text-previaDark">Zero Custo de Entrada</h4>
+                                <p class="text-[11px] text-previaDark/70">A instituição parceira não paga taxas ou mensalidades de adesão de qualquer natureza.</p>
+                            </div>
+                            <div class="p-4 bg-previaLight rounded-2xl border border-previaMid text-center space-y-2">
+                                <div class="w-8 h-8 rounded-full bg-previaTeal/10 text-previaTeal flex items-center justify-center mx-auto"><i class="fa-solid fa-people-carry-box text-sm"></i></div>
+                                <h4 class="text-xs font-extrabold text-previaDark">Zero Esforço de Equipe</h4>
+                                <p class="text-[11px] text-previaDark/70">Não há necessidade de realocar equipe interna ou gerir rotinas burocráticas.</p>
+                            </div>
+                            <div class="p-4 bg-previaLight rounded-2xl border border-previaMid text-center space-y-2">
+                                <div class="w-8 h-8 rounded-full bg-previaTeal/10 text-previaTeal flex items-center justify-center mx-auto"><i class="fa-solid fa-file-contract text-sm"></i></div>
+                                <h4 class="text-xs font-extrabold text-previaDark">Total Conformidade</h4>
+                                <p class="text-[11px] text-previaDark/70">A Previa possui respaldo junto aos órgãos do DETRAN de acordo com regulamentação nacional.</p>
+                            </div>
+                            <div class="p-4 bg-previaLight rounded-2xl border border-previaMid text-center space-y-2">
+                                <div class="w-8 h-8 rounded-full bg-previaOrange/10 text-previaOrange flex items-center justify-center mx-auto"><i class="fa-solid fa-headset text-sm"></i></div>
+                                <h4 class="text-xs font-extrabold text-previaDark">Suporte ao Aluno</h4>
+                                <p class="text-[11px] text-previaDark/70">Nossa equipe atende, orienta, resolve intercorrências diretamente no canal do estudante.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-previaTeal/10 to-previaOrange/10 p-4 rounded-xl text-center border border-previaMid max-w-2xl mx-auto">
+                            <span class="text-xs font-extrabold text-previaDark">Você indica os planos. A Previa executa e garante os resultados.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 11: RECEITA & SIMULADOR ATIVO -->
+                <div id="slide-11" class="slide-element absolute inset-0 w-full h-full p-4 lg:p-12 flex flex-col justify-between bg-gradient-to-br from-white via-previaLight to-white opacity-0 pointer-events-none slide-transition overflow-y-auto lg:overflow-y-hidden custom-scrollbar">
+                    <div class="my-auto space-y-4 lg:space-y-6">
+                        
+                        <!-- Header -->
+                        <div class="text-center">
+                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-previaOrange/10 text-previaOrange">
+                                <i class="fa-solid fa-calculator"></i> Modelo de Receita & Simulações
+                            </span>
+                            <h2 class="text-2xl lg:text-3xl font-extrabold text-previaDark mt-1">
+                                Transforme Sua Base de Alunos em uma Nova Receita
+                            </h2>
+                            <p class="text-xs text-previaDark/75 max-w-2xl mx-auto">
+                                Fornecemos planos a preço de custo operacional. Sua instituição define o preço final de venda para o aluno, determinando a sua margem exata de lucro.
+                            </p>
+                        </div>
+                        
+                        <!-- Grid layout with 3 columns -->
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+                            
+                            <!-- Left: Product Base Costs (5 cols) -->
+                            <div class="lg:col-span-4 bg-white p-4 rounded-2xl border border-previaMid shadow-sm space-y-3 flex flex-col justify-between">
+                                <div class="space-y-3">
+                                    <h3 class="text-xs font-bold text-previaDark uppercase tracking-wider border-b border-previaMid/60 pb-1.5 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-tag text-previaTeal"></i> Preço de Custo (Previa)
+                                    </h3>
+                                    <div class="bg-previaLight p-3 rounded-xl border border-previaMid space-y-1">
+                                        <div class="flex justify-between items-center text-xs font-bold text-previaDark">
+                                            <span>Plano Premium (5 Aulas + Exame)</span>
+                                            <span class="text-previaTeal">R$ 700</span>
+                                        </div>
+                                        <p class="text-[10px] text-previaDark/65 leading-relaxed">Indicado para quem precisa de reforço robusto.</p>
+                                    </div>
+                                    <div class="bg-previaLight p-3 rounded-xl border border-previaMid space-y-1">
+                                        <div class="flex justify-between items-center text-xs font-bold text-previaDark">
+                                            <span>Plano Express (2 Aulas + Exame)</span>
+                                            <span class="text-previaTeal">R$ 400</span>
+                                        </div>
+                                        <p class="text-[10px] text-previaDark/65 leading-relaxed">Indicado para habilitação rápida e revisão focada.</p>
+                                    </div>
+                                </div>
+                                <div class="p-3.5 bg-previaTeal/5 border border-previaTeal/10 rounded-xl text-center">
+                                    <span class="text-[10px] text-previaTeal font-extrabold uppercase tracking-wide block mb-1">Flexibilidade de Precificação</span>
+                                    <p class="text-[10px] text-previaDark/85 leading-normal">
+                                        Sua instituição tem autonomia de definir qualquer valor de venda acima do custo base operacional do plano para obter sua comissão.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Center: Visual Flow (3 cols) -->
+                            <div class="lg:col-span-3 bg-white p-4 rounded-2xl border border-previaMid shadow-sm flex flex-col justify-between space-y-4">
+                                <h3 class="text-xs font-bold text-previaDark uppercase tracking-wider border-b border-previaMid/60 pb-1.5">
+                                    <i class="fa-solid fa-arrow-right-arrow-left text-previaTeal mr-1"></i> Fluxo de Geração de Ganhos
+                                </h3>
+                                <div class="flex flex-col gap-4 py-2 relative justify-center flex-grow">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-full bg-previaTeal/10 text-previaTeal flex items-center justify-center text-xs shrink-0 font-extrabold">1</div>
+                                        <div>
+                                            <p class="text-xs font-bold text-previaDark">Aluno contrata o Plano</p>
+                                            <p class="text-[9px] text-previaDark/65">Pelo link do polo parceiro.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-full bg-previaOrange/10 text-previaOrange flex items-center justify-center text-xs shrink-0 font-extrabold">2</div>
+                                        <div>
+                                            <p class="text-xs font-bold text-previaDark">Parceiro retém a margem</p>
+                                            <p class="text-[9px] text-previaDark/65">Sua instituição garante a comissão.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-full bg-previaTeal/10 text-previaTeal flex items-center justify-center text-xs shrink-0 font-extrabold">3</div>
+                                        <div>
+                                            <p class="text-xs font-bold text-previaDark">A Previa executa as aulas</p>
+                                            <p class="text-[9px] text-previaDark/65">Atendimento e carros fornecidos.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="text-[9px] font-bold text-previaDark/50 uppercase tracking-widest text-center">Simples e sem fricção</span>
+                            </div>
+
+                            <!-- Right: Interactive Dynamic Revenue Estimator WITH dynamic Example inside (5 cols) -->
+                            <div class="lg:col-span-5 bg-previaDark text-white p-4 rounded-2xl shadow-xl flex flex-col justify-between space-y-3.5 relative overflow-hidden">
+                                <div class="absolute -top-10 -right-10 w-28 h-28 bg-previaTeal/10 rounded-full blur-xl"></div>
+                                <div class="absolute -bottom-10 -left-10 w-28 h-28 bg-previaOrange/10 rounded-full blur-xl"></div>
+                                
+                                <div>
+                                    <h3 class="text-xs font-extrabold text-previaOrange uppercase tracking-wider flex items-center justify-between">
+                                        <span><i class="fa-solid fa-sliders text-previaOrange mr-1"></i> Simulador de Receita Ativo</span>
+                                        <span class="bg-previaOrange/15 text-previaOrange px-2 py-0.5 rounded text-[9px] font-black uppercase tracking-widest animate-pulse">Ajuste os valores</span>
+                                    </h3>
+                                    <p class="text-[10px] text-slate-300 mt-1">Defina as métricas do seu polo de ensino para projetar o faturamento.</p>
+                                </div>
+                                
+                                <div class="space-y-3.5 my-auto">
+                                    <!-- Slider 1: Alunos por Mês -->
+                                    <div class="space-y-1">
+                                        <div class="flex justify-between text-xs font-bold">
+                                            <span class="text-slate-300">Volume de Alunos/mês:</span>
+                                            <span class="text-previaOrange font-black" id="alunosVal">50 alunos</span>
+                                        </div>
+                                        <input type="range" id="alunosSlider" min="10" max="200" step="5" value="50" oninput="calculateCommission()" class="w-full accent-previaOrange bg-slate-700 h-1 rounded-lg cursor-pointer">
+                                        <div class="flex justify-between text-[8px] text-slate-400 font-extrabold uppercase">
+                                            <span>Mínimo: 10</span>
+                                            <span>Médio: 100</span>
+                                            <span>Máximo: 200</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Slider 2: Margem por Aluno -->
+                                    <div class="space-y-1">
+                                        <div class="flex justify-between text-xs font-bold">
+                                            <span class="text-slate-300">Sua Margem por Aluno:</span>
+                                            <span class="text-previaTeal font-black" id="margemVal">R$ 100</span>
+                                        </div>
+                                        <input type="range" id="margemSlider" min="50" max="250" step="10" value="100" oninput="calculateCommission()" class="w-full accent-previaTeal bg-slate-700 h-1 rounded-lg cursor-pointer">
+                                        <div class="flex justify-between text-[8px] text-slate-400 font-extrabold uppercase">
+                                            <span>Margem: R$ 50</span>
+                                            <span>R$ 150</span>
+                                            <span>R$ 250</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- HIGHLY DYNAMIC "EXEMPLO PRÁTICO" BOX INSIDE CALCULATOR -->
+                                <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700/60 space-y-1 relative z-10">
+                                    <span class="text-[9px] font-bold text-previaOrange uppercase tracking-wider block flex items-center gap-1">
+                                        <i class="fa-solid fa-circle-info"></i> Exemplo Prático Dinâmico
+                                    </span>
+                                    <p class="text-[10px] text-slate-200 leading-relaxed">
+                                        Se sua instituição vender o <strong class="text-slate-100">Plano Premium</strong> por <strong class="text-previaTeal" id="dynPremiumFinal">R$ 800</strong> (Preço de Custo R$ 700 + sua margem de <span class="text-previaTeal font-bold" id="dynMargem1">R$ 100</span>), você retém <strong class="text-previaOrange font-bold" id="dynMargem2">R$ 100</strong> por venda. 
+                                        Com <span class="font-bold text-white" id="dynAlunos">50</span> alunos/mês, são <strong class="text-previaOrange font-bold" id="dynGanhoMensal">R$ 5.000</strong> de lucro puro direto para seu caixa!
+                                    </p>
+                                </div>
+
+                                <!-- Live Projections -->
+                                <div class="grid grid-cols-2 gap-3 pt-3 border-t border-slate-700/60 relative z-10">
+                                    <div class="bg-slate-800/60 p-2.5 rounded-xl border border-slate-700/40 text-center">
+                                        <span class="text-[9px] text-slate-400 font-bold uppercase tracking-wider block">Faturamento Mensal</span>
+                                        <span class="text-base lg:text-lg font-black text-previaTeal" id="receitaMensal">R$ 5.000</span>
+                                    </div>
+                                    <div class="bg-slate-800/60 p-2.5 rounded-xl border border-slate-700/40 text-center bg-gradient-to-tr from-slate-800/80 to-slate-800/30">
+                                        <span class="text-[9px] text-slate-400 font-bold uppercase tracking-wider block">Faturamento Anual</span>
+                                        <span class="text-lg lg:text-xl font-black text-previaOrange" id="receitaAnual">R$ 60.000</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 12: VAMOS CONSTRUIR ESSA PARCERIA? (CTA) -->
+                <div id="slide-12" class="slide-element absolute inset-0 w-full h-full p-6 lg:p-12 flex flex-col justify-between bg-gradient-to-br from-previaDark via-[#242E37] to-previaDark text-white opacity-0 pointer-events-none slide-transition">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto">
+                        
+                        <!-- Left text -->
+                        <div class="lg:col-span-8 space-y-4 lg:space-y-6">
+                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-previaTeal/20 text-previaTeal">
+                                <i class="fa-solid fa-rocket"></i> Próximos Passos
+                            </span>
+                            <h2 class="text-3xl lg:text-4xl font-extrabold leading-tight">
+                                Uma Nova Oportunidade Para Seus Alunos e Para Sua Instituição
+                            </h2>
+                            <p class="text-sm text-slate-300 leading-relaxed max-w-2xl">
+                                Integre seu polo educacional à rede de parcerias estratégicas da Previa. Ofereça comodidade aos seus estudantes enquanto cria uma fonte sólida de faturamento sem complicação operacional.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl text-xs text-slate-200">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-previaTeal text-base"></i>
+                                    <span>Benefício e comodidade para os alunos</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-previaTeal text-base"></i>
+                                    <span>Nova receita expressiva para a instituição</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-previaTeal text-base"></i>
+                                    <span>Risco financeiro e operacional zero</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-previaTeal text-base"></i>
+                                    <span>Apoio em tecnologia LXP e suporte dedicado</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right QR Code Box -->
+                        <div class="lg:col-span-4 flex flex-col items-center text-center space-y-3">
+                            <div class="bg-white p-4 rounded-2xl shadow-2xl border border-slate-700/60 inline-block">
+                                <!-- Customized high contrast mock SVG QR Code for visual fidelity -->
+                                <svg class="w-32 h-32 lg:w-40 lg:h-40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Outer Finder Pattern Top Left -->
+                                    <rect x="5" y="5" width="25" height="25" rx="3" stroke="#2F3B45" stroke-width="6"/>
+                                    <rect x="12" y="12" width="11" height="11" rx="2" fill="#0097A8"/>
+                                    
+                                    <!-- Outer Finder Pattern Top Right -->
+                                    <rect x="70" y="5" width="25" height="25" rx="3" stroke="#2F3B45" stroke-width="6"/>
+                                    <rect x="77" y="12" width="11" height="11" rx="2" fill="#0097A8"/>
+                                    
+                                    <!-- Outer Finder Pattern Bottom Left -->
+                                    <rect x="5" y="70" width="25" height="25" rx="3" stroke="#2F3B45" stroke-width="6"/>
+                                    <rect x="12" y="77" width="11" height="11" rx="2" fill="#FF6903"/>
+                                    
+                                    <!-- Custom internal code mock patterns -->
+                                    <rect x="40" y="10" width="8" height="8" rx="1.5" fill="#2F3B45"/>
+                                    <rect x="52" y="15" width="10" height="4" rx="1" fill="#FF6903"/>
+                                    <rect x="40" y="24" width="15" height="6" rx="1" fill="#2F3B45"/>
+                                    <rect x="10" y="40" width="20" height="8" rx="1.5" fill="#2F3B45"/>
+                                    <rect x="10" y="52" width="12" height="12" rx="2" fill="#0097A8"/>
+                                    <rect x="42" y="42" width="16" height="16" rx="2" fill="#2F3B45"/>
+                                    <rect x="72" y="42" width="18" height="18" rx="2" fill="#FF6903"/>
+                                    <rect x="42" y="72" width="12" height="18" rx="2" fill="#0097A8"/>
+                                    <rect x="62" y="72" width="28" height="12" rx="2" fill="#2F3B45"/>
+                                    
+                                    <!-- Middle Small Logo dot -->
+                                    <circle cx="50" cy="50" r="8" fill="white"/>
+                                    <circle cx="50" cy="50" r="5" fill="#0097A8"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="bg-previaTeal text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest shadow-md shadow-previaTeal/20">
+                                    Escaneie Para Começar
+                                </span>
+                                <p class="text-[10px] text-slate-300 mt-2">Acesse para simular planos personalizados ou formalizar a parceria.</p>
+                                <a href="https://www.previatreinamentos.com.br/" target="_blank" class="text-[11px] font-bold text-previaTeal hover:underline mt-1 block">
+                                    <i class="fa-solid fa-globe mr-1"></i> www.previatreinamentos.com.br
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- BOTTOM PRESENTATION CONTROLLER/NAVBAR -->
+            <footer class="bg-previaLight border-t border-previaMid px-4 py-3 flex flex-wrap items-center justify-between gap-4 select-none z-10 shrink-0">
+                
+                <!-- Nav Controls -->
+                <div class="flex items-center gap-1.5 bg-white p-1 rounded-xl border border-previaMid shadow-sm">
+                    <button onclick="previousSlide()" class="px-3.5 py-2 rounded-lg bg-previaLight hover:bg-previaTeal hover:text-white text-previaDark text-xs font-bold transition flex items-center gap-1.5 cursor-pointer" title="Slide Anterior">
+                        <i class="fa-solid fa-circle-chevron-left"></i> Anterior
+                    </button>
+                    <button onclick="nextSlide()" class="px-3.5 py-2 rounded-lg bg-previaTeal text-white hover:bg-previaTealDark text-xs font-bold transition flex items-center gap-1.5 cursor-pointer" title="Próximo Slide">
+                        Próximo <i class="fa-solid fa-circle-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Slide Counter indicators -->
+                <div class="flex items-center gap-2">
+                    <span id="slideCounterText" class="text-xs font-extrabold text-previaDark bg-previaMid/50 px-3 py-1.5 rounded-lg">
+                        1 / 12
+                    </span>
+                    <div class="hidden sm:flex gap-1">
+                        <kbd class="px-2 py-1 bg-white border border-previaMid text-[10px] font-bold rounded shadow-sm text-previaDark/60">←</kbd>
+                        <kbd class="px-2 py-1 bg-white border border-previaMid text-[10px] font-bold rounded shadow-sm text-previaDark/60">→</kbd>
+                        <span class="text-[10px] text-previaDark/50 self-center font-semibold">Teclado</span>
+                    </div>
+                </div>
+
+                <!-- Action Button link -->
+                <a href="https://www.previatreinamentos.com.br/" target="_blank" class="px-4 py-2 bg-gradient-to-r from-previaTeal to-previaTealDark text-white font-extrabold text-xs rounded-xl shadow-md shadow-previaTeal/20 hover:scale-[1.02] transition-transform flex items-center gap-1.5">
+                    <i class="fa-solid fa-square-envelope"></i> Falar com um Consultor
+                </a>
+            </footer>
+
+        </div>
+
+    </main>
+
+    <!-- COMPACT FOOTER -->
+    <footer class="text-center py-4 px-4 text-[10px] text-previaDark/40 font-semibold select-none">
+        © 2026 Previa Treinamentos. Todos os direitos reservados. Plataforma de Captação e Conversão de Parcerias Estratégicas B2B.
+    </footer>
+
+    <script>
+        // Track current slide state index
+        let currentSlide = 1;
+        const totalSlides = 12;
+
+        // Transition Slide to the requested index
+        function goToSlide(slideIndex) {
+            if (slideIndex < 1 || slideIndex > totalSlides) return;
+            
+            // Manage slide transparency elements
+            for (let i = 1; i <= totalSlides; i++) {
+                const slide = document.getElementById(`slide-${i}`);
+                if (slide) {
+                    if (i === slideIndex) {
+                        slide.classList.remove('opacity-0', 'pointer-events-none');
+                        slide.classList.add('opacity-100', 'z-10');
+                    } else {
+                        slide.classList.remove('opacity-100', 'z-10');
+                        slide.classList.add('opacity-0', 'pointer-events-none');
+                    }
+                }
+            }
+            
+            // Save state index
+            currentSlide = slideIndex;
+            
+            // Sync controllers & Selectors
+            document.getElementById('slideSelector').value = slideIndex;
+            document.getElementById('slideCounterText').textContent = `${slideIndex} / ${totalSlides}`;
+            
+            // Sincronize visual dynamic progress indicators
+            const indicators = document.querySelectorAll('.progress-indicator');
+            indicators.forEach(indicator => {
+                const step = parseInt(indicator.getAttribute('data-slide'));
+                if (step <= slideIndex) {
+                    indicator.classList.remove('bg-previaMid');
+                    indicator.classList.add('bg-previaTeal');
+                } else {
+                    indicator.classList.remove('bg-previaTeal');
+                    indicator.classList.add('bg-previaMid');
+                }
+            });
+        }
+
+        // Navigation increments
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                goToSlide(currentSlide + 1);
+            } else {
+                // Loop back to slide 1
+                goToSlide(1);
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlide > 1) {
+                goToSlide(currentSlide - 1);
+            } else {
+                // Loop to last slide
+                goToSlide(totalSlides);
+            }
+        }
+
+        // Support Keyboard Key binds (arrows)
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === ' ') {
+                event.preventDefault();
+                nextSlide();
+            } else if (event.key === 'ArrowLeft') {
+                event.preventDefault();
+                previousSlide();
+            }
+        });
+
+        // Swipe Gestures Support for touch displays
+        let touchstartX = 0;
+        let touchendX = 0;
+        
+        const deckContainer = document.getElementById('deckContainer');
+        deckContainer.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+        });
+        
+        deckContainer.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            handleGesture();
+        });
+        
+        function handleGesture() {
+            if (touchendX < touchstartX - 50) {
+                nextSlide(); // Swipe left -> Next
+            }
+            if (touchendX > touchstartX + 50) {
+                previousSlide(); // Swipe right -> Previous
+            }
+        }
+
+        // Stream Fullscreen capability
+        function toggleFullscreen() {
+            const fsIcon = document.getElementById('fsIcon');
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().then(() => {
+                    fsIcon.classList.remove('fa-expand');
+                    fsIcon.classList.add('fa-compress');
+                }).catch(err => {
+                    console.log(`Erro ao iniciar tela cheia: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+                fsIcon.classList.remove('fa-compress');
+                fsIcon.classList.add('fa-expand');
+            }
+        }
+
+        // Dynamic formula calculation for financial simulation slide 11 WITH dynamic example insertion
+        function calculateCommission() {
+            const alunos = parseInt(document.getElementById('alunosSlider').value);
+            const margem = parseInt(document.getElementById('margemSlider').value);
+            
+            // Calculate projections
+            const mensal = alunos * margem;
+            const anual = mensal * 12;
+            const pricePremiumWithMargin = 700 + margem;
+            
+            // Format to BRL Currency
+            const formattedMensal = mensal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+            const formattedAnual = anual.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+            const formattedMargem = margem.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+            const formattedPricePremium = pricePremiumWithMargin.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+            
+            // Update UI Counters
+            document.getElementById('alunosVal').textContent = `${alunos} alunos`;
+            document.getElementById('margemVal').textContent = `R$ ${margem}`;
+            document.getElementById('receitaMensal').textContent = formattedMensal;
+            document.getElementById('receitaAnual').textContent = formattedAnual;
+
+            // UPDATE DYNAMIC "EXEMPLO PRÁTICO" WITH LIVE VALUE UPDATES
+            document.getElementById('dynPremiumFinal').textContent = formattedPricePremium;
+            document.getElementById('dynMargem1').textContent = formattedMargem;
+            document.getElementById('dynMargem2').textContent = formattedMargem;
+            document.getElementById('dynAlunos').textContent = alunos;
+            document.getElementById('dynGanhoMensal').textContent = formattedMensal;
+        }
+
+        // Initialize setup on window loaded
+        window.onload = function() {
+            goToSlide(1);
+            calculateCommission();
+        };
+    </script>
+</body>
+</html>
