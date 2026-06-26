@@ -124,13 +124,13 @@
             <div class="progress-indicator h-2 flex-1 rounded-full bg-previaMid transition-all duration-300" data-slide="12"></div>
         </div>
 
-        <!-- The Deck Card -->
+        <!-- The Deck Card (Enforces aspect-ratio on desktop but expands gracefully on smaller displays) -->
         <div id="deckContainer" class="w-full bg-white rounded-3xl shadow-2xl border border-previaMid/60 aspect-none lg:aspect-16/9 overflow-hidden flex flex-col relative min-h-[580px] lg:min-h-0">
             
             <!-- STAGE / SLIDES CONTAINER -->
             <div id="slides-container" class="flex-grow relative overflow-hidden h-full">
 
-                <!-- SLIDE 1: QUEM É A PREVIA -->
+                <!-- SLIDE 1: QUEM É A PREVIA (BRAND & FOCUS) -->
                 <div id="slide-1" class="slide-element absolute inset-0 w-full h-full p-8 lg:p-14 flex flex-col justify-between bg-gradient-to-br from-white via-previaLight to-white opacity-100 z-10 slide-transition">
                     <div class="my-auto space-y-6 lg:space-y-8">
                         <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-bold bg-previaTeal/10 text-previaTeal">
@@ -140,7 +140,7 @@
                             Previa: Tecnologia, Educação e Mobilidade para <span class="text-previaTeal">Transformar</span> a Formação de Condutores
                         </h1>
                         <p class="text-base lg:text-lg text-previaDark/80 leading-relaxed max-w-5xl">
-                            A Previa é uma empresa especializada em mobilidade, educação para o trânsito e desenvolvimento de soluções tecnológicas para formação e capacitação de condutores.
+                            A Previa é uma empresa especializada em mobilidade, education para o trânsito e desenvolvimento de soluções tecnológicas para formação e capacitação de condutores.
                         </p>
                         <p class="text-base lg:text-lg text-previaDark/80 leading-relaxed max-w-5xl">
                             Atuamos em todo o Brasil por meio de uma rede de instrutores homologados pelo DETRAN, combinando treinamentos presenciais, cursos digitais, análise do perfil do motorista, consultoria em mobilidade e uma plataforma própria de gestão e aprendizagem.
@@ -313,7 +313,7 @@
                         <!-- Client Logos footer -->
                         <div class="border-t border-previaMid/60 pt-4 text-center">
                             <span class="text-xs text-previaDark/60 uppercase font-extrabold tracking-widest block mb-4">
-                                Confia no nosso trabalho
+                                Confie no nosso trabalho
                             </span>
                             <div class="flex flex-wrap justify-center items-center gap-6 lg:gap-10 px-4">
                                 <!-- SWISSPORT -->
@@ -365,6 +365,11 @@
                                         <div class="w-1 h-3.5 bg-orange-400 rounded-full"></div>
                                     </div>
                                     <span class="font-black text-sm lg:text-base text-blue-950 tracking-tighter">nts</span>
+                                </div>
+                                <!-- JSL -->
+                                <div class="flex items-center gap-1.5 h-8 opacity-80 hover:opacity-100 transition duration-200">
+                                    <span class="font-black text-lg lg:text-xl tracking-tighter text-red-600 select-none">JSL</span>
+                                    <span class="text-[8px] font-bold text-gray-500 tracking-wider self-end mb-1">LOGÍSTICA</span>
                                 </div>
                             </div>
                         </div>
@@ -456,12 +461,12 @@
                             </div>
                             <div class="bg-white p-6 rounded-2xl border border-previaMid shadow-sm space-y-3">
                                 <div class="w-12 h-12 rounded-xl bg-previaTeal/10 text-previaTeal flex items-center justify-center"><i class="fa-solid fa-users text-2xl"></i></div>
-                                <h3 class="text-base font-extrabold text-previaDark">Atendimento Presencial</h3>
+                                <h3 class="text-sm font-extrabold text-previaDark">Atendimento Presencial</h3>
                                 <p class="text-sm text-previaDark/75 leading-relaxed">Pontos de suporte físico de forma amigável diretamente no polo da faculdade.</p>
                             </div>
                             <div class="bg-white p-6 rounded-2xl border border-previaMid shadow-sm space-y-3">
                                 <div class="w-12 h-12 rounded-xl bg-previaTeal/10 text-previaTeal flex items-center justify-center"><i class="fa-solid fa-mobile-screen-button text-2xl"></i></div>
-                                <h3 class="text-base font-extrabold text-previaDark">Atendimento Online</h3>
+                                <h3 class="text-sm font-extrabold text-previaDark">Atendimento Online</h3>
                                 <p class="text-sm text-previaDark/75 leading-relaxed">Suporte multicanal instantâneo e portal automatizado para agilizar requisições.</p>
                             </div>
                             <div class="bg-white p-6 rounded-2xl border border-previaMid shadow-sm space-y-3">
@@ -675,7 +680,7 @@
                                 Painel Exclusivo da Instituição Parceira
                             </h2>
                             <p class="text-sm lg:text-base text-previaDark/80 leading-relaxed">
-                                Como parceiro estratégico da Previa, sua instituição possui acesso a um painel analítico administrativo de última geração para monitoramento e auditoria sem esforço operacional:
+                                Como parceiro estratégico da Previa, sua instituição possui acesso a um painel analítico administrativo de última geração para monitoramento e auditoria sem esforço operacional:
                             </p>
                             
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -832,115 +837,113 @@
                     </div>
                 </div>
 
-                <!-- SLIDE 11: RECEITA & SIMULADOR ATIVO -->
-                <div id="slide-11" class="slide-element absolute inset-0 w-full h-full p-6 lg:p-10 flex flex-col justify-between bg-gradient-to-br from-white via-previaLight to-white opacity-0 pointer-events-none slide-transition overflow-y-auto lg:overflow-y-hidden custom-scrollbar">
-                    <div class="my-auto space-y-4 lg:space-y-6 w-full">
+                <!-- SLIDE 11: RECEITA & SIMULADOR ATIVO (Otimizado sem Rolagem) -->
+                <div id="slide-11" class="slide-element absolute inset-0 w-full h-full p-6 lg:p-8 flex flex-col justify-between bg-gradient-to-br from-white via-previaLight to-white opacity-0 pointer-events-none slide-transition overflow-hidden">
+                    <div class="my-auto space-y-3 lg:space-y-4 w-full">
                         
                         <!-- Header -->
                         <div class="text-center">
-                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-previaOrange/10 text-previaOrange">
-                                <i class="fa-solid fa-calculator text-xs"></i> Modelo de Receita & Simulações
+                            <span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[11px] font-bold bg-previaOrange/10 text-previaOrange">
+                                <i class="fa-solid fa-calculator text-[10px]"></i> Modelo de Receita & Simulações
                             </span>
-                            <h2 class="text-2xl lg:text-3xl font-black text-previaDark mt-1">
+                            <h2 class="text-xl lg:text-2xl font-black text-previaDark mt-0.5">
                                 Transforme Sua Base de Alunos em uma Nova Receita
                             </h2>
                         </div>
                         
-                        <!-- Grid layout with maximized Calculator (8 cols vs 4 cols) -->
-                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+                        <!-- Grid layout optimized -->
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
                             
-                            <!-- Left: Product Base Costs (Ampliado, 4 cols) -->
-                            <div class="lg:col-span-4 bg-white p-5 rounded-2xl border border-previaMid shadow-md space-y-4 flex flex-col justify-between">
-                                <div class="space-y-3.5">
-                                    <h3 class="text-xs lg:text-sm font-black text-previaDark uppercase tracking-wider border-b border-previaMid/60 pb-2 flex items-center gap-1.5">
+                            <!-- Left: Product Base Costs -->
+                            <div class="lg:col-span-4 bg-white p-4 rounded-2xl border border-previaMid shadow-md flex flex-col justify-between space-y-2">
+                                <div class="space-y-2">
+                                    <h3 class="text-xs font-black text-previaDark uppercase tracking-wider border-b border-previaMid/60 pb-1 flex items-center gap-1">
                                         <i class="fa-solid fa-tag text-previaTeal"></i> Preço de Custo (Previa)
                                     </h3>
-                                    <div class="bg-previaLight p-3.5 rounded-xl border border-previaMid space-y-1.5">
-                                        <div class="flex justify-between items-center text-sm font-extrabold text-previaDark">
+                                    <div class="bg-previaLight p-2.5 rounded-xl border border-previaMid space-y-1">
+                                        <div class="flex justify-between items-center text-xs font-extrabold text-previaDark">
                                             <span>Plano Premium (5 Aulas + Exame)</span>
-                                            <span class="text-previaTeal text-base">R$ 700</span>
+                                            <span class="text-previaTeal font-black">R$ 700</span>
                                         </div>
-                                        <p class="text-xs text-previaDark/65 leading-relaxed">Indicado para quem precisa de reforço robusto.</p>
+                                        <p class="text-[10px] text-previaDark/65">Indicado para quem precisa de reforço robusto.</p>
                                     </div>
-                                    <div class="bg-previaLight p-3.5 rounded-xl border border-previaMid space-y-1.5">
-                                        <div class="flex justify-between items-center text-sm font-extrabold text-previaDark">
+                                    <div class="bg-previaLight p-2.5 rounded-xl border border-previaMid space-y-1">
+                                        <div class="flex justify-between items-center text-xs font-extrabold text-previaDark">
                                             <span>Plano Express (2 Aulas + Exame)</span>
-                                            <span class="text-previaTeal text-base">R$ 400</span>
+                                            <span class="text-previaTeal font-black">R$ 400</span>
                                         </div>
-                                        <p class="text-xs text-previaDark/65 leading-relaxed">Indicado para habilitação rápida e revisão focada.</p>
+                                        <p class="text-[10px] text-previaDark/65">Indicado para habilitação rápida e revisão focada.</p>
                                     </div>
                                 </div>
-                                <div class="p-4 bg-previaTeal/5 border border-previaTeal/10 rounded-xl text-center">
-                                    <span class="text-xs text-previaTeal font-black uppercase tracking-wide block mb-1">Margem Personalizada</span>
-                                    <p class="text-xs text-previaDark/85 leading-relaxed">
-                                        Sua instituição tem autonomia de definir qualquer valor de venda acima do custo operacional do plano.
+                                <div class="p-3 bg-previaTeal/5 border border-previaTeal/10 rounded-xl text-center">
+                                    <span class="text-[11px] text-previaTeal font-black uppercase tracking-wide block mb-0.5">Margem Personalizada</span>
+                                    <p class="text-[10px] text-previaDark/85 leading-normal">
+                                        Defina qualquer valor de venda acima do custo operacional do plano.
                                     </p>
                                 </div>
                             </div>
 
-                            <!-- Right: Calculator Card (Ampliado e imponente, 8 cols) -->
-                            <div class="lg:col-span-8 bg-previaDark text-white p-6 lg:p-8 rounded-3xl shadow-2xl flex flex-col justify-between space-y-5 relative overflow-hidden">
-                                <div class="absolute -top-10 -right-10 w-32 h-32 bg-previaTeal/15 rounded-full blur-xl"></div>
-                                <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-previaOrange/15 rounded-full blur-xl"></div>
+                            <!-- Right: Calculator Card -->
+                            <div class="lg:col-span-8 bg-previaDark text-white p-5 lg:p-6 rounded-3xl shadow-2xl flex flex-col justify-between space-y-3 relative overflow-hidden">
+                                <div class="absolute -top-10 -right-10 w-24 h-24 bg-previaTeal/10 rounded-full blur-xl"></div>
+                                <div class="absolute -bottom-10 -left-10 w-24 h-24 bg-previaOrange/10 rounded-full blur-xl"></div>
                                 
-                                <div class="relative z-10">
-                                    <h3 class="text-xs lg:text-sm font-black text-previaOrange uppercase tracking-wider flex items-center justify-between">
-                                        <span><i class="fa-solid fa-sliders text-previaOrange mr-1.5"></i> Simulador de Receita Ativo</span>
-                                        <span class="bg-previaOrange/15 text-previaOrange px-2.5 py-1 rounded text-[9px] font-black uppercase tracking-widest animate-pulse">Ajuste os valores</span>
+                                <div class="relative z-10 flex justify-between items-center">
+                                    <h3 class="text-xs font-black text-previaOrange uppercase tracking-wider flex items-center gap-1.5">
+                                        <i class="fa-solid fa-sliders text-previaOrange"></i> Simulador de Receita Ativo
                                     </h3>
+                                    <span class="bg-previaOrange/15 text-previaOrange px-2 py-0.5 rounded text-[9px] font-black uppercase tracking-widest animate-pulse">Ajuste os valores</span>
                                 </div>
                                 
-                                <!-- Sliders with Larger values -->
-                                <div class="space-y-4 my-auto relative z-10">
+                                <!-- Sliders with optimal vertical margin -->
+                                <div class="space-y-3 relative z-10">
                                     <!-- Slider 1: Alunos por Mês -->
-                                    <div class="space-y-1.5">
-                                        <div class="flex justify-between text-sm lg:text-base font-bold">
+                                    <div class="space-y-1">
+                                        <div class="flex justify-between text-xs lg:text-sm font-bold">
                                             <span class="text-slate-300">Volume de Alunos/mês:</span>
-                                            <span class="text-previaOrange text-xl lg:text-2xl font-black" id="alunosVal">50 alunos</span>
+                                            <span class="text-previaOrange text-base lg:text-lg font-black" id="alunosVal">50 alunos</span>
                                         </div>
-                                        <input type="range" id="alunosSlider" min="10" max="200" step="5" value="50" oninput="calculateCommission()" class="w-full accent-previaOrange bg-slate-700 h-2 rounded-lg cursor-pointer">
-                                        <div class="flex justify-between text-[9px] text-slate-400 font-extrabold uppercase tracking-wider">
+                                        <input type="range" id="alunosSlider" min="10" max="200" step="5" value="50" oninput="calculateCommission()" class="w-full accent-previaOrange bg-slate-700 h-1.5 rounded-lg cursor-pointer">
+                                        <div class="flex justify-between text-[8px] text-slate-400 font-extrabold uppercase">
                                             <span>Mínimo: 10</span>
-                                            <span>Médio: 100</span>
                                             <span>Máximo: 200</span>
                                         </div>
                                     </div>
 
                                     <!-- Slider 2: Margem por Aluno -->
-                                    <div class="space-y-1.5">
-                                        <div class="flex justify-between text-sm lg:text-base font-bold">
+                                    <div class="space-y-1">
+                                        <div class="flex justify-between text-xs lg:text-sm font-bold">
                                             <span class="text-slate-300">Sua Margem por Aluno:</span>
-                                            <span class="text-previaTeal text-xl lg:text-2xl font-black" id="margemVal">R$ 100</span>
+                                            <span class="text-previaTeal text-base lg:text-lg font-black" id="margemVal">R$ 100</span>
                                         </div>
-                                        <input type="range" id="margemSlider" min="50" max="250" step="10" value="100" oninput="calculateCommission()" class="w-full accent-previaTeal bg-slate-700 h-2 rounded-lg cursor-pointer">
-                                        <div class="flex justify-between text-[9px] text-slate-400 font-extrabold uppercase tracking-wider">
+                                        <input type="range" id="margemSlider" min="50" max="250" step="10" value="100" oninput="calculateCommission()" class="w-full accent-previaTeal bg-slate-700 h-1.5 rounded-lg cursor-pointer">
+                                        <div class="flex justify-between text-[8px] text-slate-400 font-extrabold uppercase">
                                             <span>Margem: R$ 50</span>
-                                            <span>R$ 150</span>
                                             <span>R$ 250</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- HIGHLY DYNAMIC "EXEMPLO PRÁTICO" BOX INSIDE CALCULATOR -->
-                                <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/60 space-y-1.5 relative z-10">
-                                    <span class="text-[10px] font-black text-previaOrange uppercase tracking-widest block flex items-center gap-1.5">
+                                <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700/60 space-y-1 relative z-10">
+                                    <span class="text-[9px] font-black text-previaOrange uppercase tracking-widest block flex items-center gap-1.5">
                                         <i class="fa-solid fa-circle-info"></i> Exemplo Prático Dinâmico
                                     </span>
-                                    <p class="text-xs lg:text-sm text-slate-200 leading-relaxed">
+                                    <p class="text-[11px] text-slate-200 leading-normal">
                                         Se sua instituição vender o <strong class="text-slate-100">Plano Premium</strong> por <strong class="text-previaTeal" id="dynPremiumFinal">R$ 800</strong> (Preço de Custo R$ 700 + sua margem de <span class="text-previaTeal font-bold" id="dynMargem1">R$ 100</span>), você retém <strong class="text-previaOrange font-bold" id="dynMargem2">R$ 100</strong> por venda. 
                                         Com <span class="font-bold text-white" id="dynAlunos">50</span> alunos/mês, são <strong class="text-previaOrange font-bold" id="dynGanhoMensal">R$ 5.000</strong> de lucro puro direto para seu caixa!
                                     </p>
                                 </div>
 
                                 <!-- Live Projections - NUMEROS GIGANTES -->
-                                <div class="grid grid-cols-2 gap-4 pt-4 border-t border-slate-700/60 relative z-10">
-                                    <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/40 text-center">
-                                        <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block mb-1">Faturamento Mensal</span>
-                                        <span class="text-2xl lg:text-4xl font-black text-previaTeal" id="receitaMensal">R$ 5.000</span>
+                                <div class="grid grid-cols-2 gap-3 pt-2 border-t border-slate-700/60 relative z-10">
+                                    <div class="bg-slate-800/60 p-3 rounded-xl border border-slate-700/40 text-center">
+                                        <span class="text-[9px] text-slate-400 font-bold uppercase tracking-wider block mb-0.5">Faturamento Mensal</span>
+                                        <span class="text-xl lg:text-3xl font-black text-previaTeal" id="receitaMensal">R$ 5.000</span>
                                     </div>
-                                    <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/40 text-center bg-gradient-to-tr from-slate-800/80 to-slate-800/30">
-                                        <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block mb-1">Faturamento Anual</span>
-                                        <span class="text-3xl lg:text-5xl font-black text-previaOrange" id="receitaAnual">R$ 60.000</span>
+                                    <div class="bg-slate-800/60 p-3 rounded-xl border border-slate-700/40 text-center bg-gradient-to-tr from-slate-800/80 to-slate-800/30">
+                                        <span class="text-[9px] text-slate-400 font-bold uppercase tracking-wider block mb-0.5">Faturamento Anual</span>
+                                        <span class="text-2xl lg:text-4xl font-black text-previaOrange" id="receitaAnual">R$ 60.000</span>
                                     </div>
                                 </div>
                             </div>
@@ -1024,12 +1027,19 @@
                                 </span>
                                 <p class="text-xs text-slate-300 mt-3">Acesse para simular planos personalizados ou formalizar a parceria.</p>
 
+                                <p class="text-xs text-slate-300 mt-3">Saiba mais e acesse a PREVIA.</p>
 
-                                
-                                <p class="text-xs text-slate-300 mt-3">Saiba mais sobre a PREVIA acesse.</p>
                                 <a href="https://www.previatreinamentos.com.br/" target="_blank" class="text-sm font-bold text-previaTeal hover:underline mt-1.5 block">
                                     <i class="fa-solid fa-globe mr-1"></i> www.previatreinamentos.com.br
                                 </a>
+                                
+                                <!-- Logo PREVIA abaixo do link -->
+                                <div class="mt-4 flex justify-center">
+                                    <img src="https://photos.google.com/share/AF1QipNtiPgIvRosueDrAhiJ8pNtYkjW8krr55kazHarWtSWxsR5p0OtvpcQfekfz_i3oQ/photo/AF1QipPJRRCaumFOxR5-R6bczbWIduoBNgpa_QPsCbPZ?key=bXQyYUZra0JfV05OY1RMN1FaSEk1RjhXLW04ei1n" 
+                                         alt="Logo PREVIA" 
+                                         class="h-8 lg:h-10 w-auto object-contain bg-white p-2 rounded-xl shadow-sm border border-slate-200"
+                                         onerror="this.onerror=null; this.src='https://placehold.co/180x60/ffffff/0097A8?text=PREVIA';">
+                                </div>
                             </div>
                         </div>
 
@@ -1063,9 +1073,9 @@
                     </div>
                 </div>
 
-                <!-- Action Button link -->
+                <!-- Action Button link para WhatsApp -->
                 <a href="https://wa.me/5511968636672" target="_blank" class="px-4 py-2 bg-gradient-to-r from-previaTeal to-previaTealDark text-white font-extrabold text-xs rounded-xl shadow-md shadow-previaTeal/20 hover:scale-[1.02] transition-transform flex items-center gap-1.5">
-                    <i class="fa-solid fa-square-envelope"></i> Falar com um Consultor
+                    <i class="fa-brands fa-whatsapp text-sm"></i> Falar com um Consultor
                 </a>
             </footer>
 
@@ -1148,7 +1158,6 @@
                 nextSlide();
             } else if (event.key === 'ArrowLeft') {
                 event.preventDefault();
-                previousSlide();
             }
         });
 
