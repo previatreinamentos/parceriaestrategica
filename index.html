@@ -124,13 +124,13 @@
             <div class="progress-indicator h-2 flex-1 rounded-full bg-previaMid transition-all duration-300" data-slide="12"></div>
         </div>
 
-        <!-- The Deck Card (Enforces aspect-ratio on desktop but expands gracefully on smaller displays) -->
+        <!-- The Deck Card -->
         <div id="deckContainer" class="w-full bg-white rounded-3xl shadow-2xl border border-previaMid/60 aspect-none lg:aspect-16/9 overflow-hidden flex flex-col relative min-h-[580px] lg:min-h-0">
             
             <!-- STAGE / SLIDES CONTAINER -->
             <div id="slides-container" class="flex-grow relative overflow-hidden h-full">
 
-                <!-- SLIDE 1: QUEM É A PREVIA (BRAND & FOCUS) -->
+                <!-- SLIDE 1: QUEM É A PREVIA -->
                 <div id="slide-1" class="slide-element absolute inset-0 w-full h-full p-8 lg:p-14 flex flex-col justify-between bg-gradient-to-br from-white via-previaLight to-white opacity-100 z-10 slide-transition">
                     <div class="my-auto space-y-6 lg:space-y-8">
                         <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-bold bg-previaTeal/10 text-previaTeal">
@@ -157,10 +157,10 @@
                 <div id="slide-2" class="slide-element absolute inset-0 w-full h-full p-6 lg:p-10 flex flex-col justify-between bg-white opacity-0 pointer-events-none slide-transition overflow-y-auto lg:overflow-y-hidden custom-scrollbar">
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto w-full">
                         
-                        <!-- Left Column: Amauri de Souza Profile Photo Slot (Ampliado) -->
+                        <!-- Left Column: Amauri de Souza Profile Photo Slot -->
                         <div class="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left space-y-4">
                             <div class="relative">
-                                <div class="w-80 h-80 lg:w-82 lg:h-82 border-4 border-previaTeal bg-previaLight rounded-3xl shadow-xl flex flex-col items-center justify-center relative overflow-hidden transition-all duration-300">
+                                <div class="w-40 h-40 lg:w-52 lg:h-52 border-4 border-previaTeal bg-previaLight rounded-3xl shadow-xl flex flex-col items-center justify-center relative overflow-hidden transition-all duration-300">
                                     <img id="fotoAmauri de Souza" src="https://lh3.googleusercontent.com/pw/AP1GczOdDl-B7oH5OqNTZZJb3HnxwyPbYV64cwPUP5fe0PlYkdF3sh_APJ4jRcnQa6rDXq7EEjtoF52plSYGf6T7Ij_3cZDtidss-ZtRsjkWrSNCUJ1EavGqqnz-aS1cAXSEhNTceejwm-QPruXgnIUWOVA5=w1063-h779-s-no-gm?authuser=0" alt="Amauri" class="absolute inset-0 w-full h-full object-cover">
                                 </div>
                                 <!-- Badge "15+ Anos" -->
@@ -175,7 +175,7 @@
                             </div>
                         </div>
 
-                        <!-- Right Column: Biography Details & Custom Gallery (Mais espaçados) -->
+                        <!-- Right Column: Biography Details & Custom Gallery -->
                         <div class="lg:col-span-8 space-y-4">
                             <h2 class="text-2xl font-black text-previaDark flex items-center gap-2">
                                 <span class="w-8 h-1 bg-previaTeal rounded"></span>
@@ -200,7 +200,7 @@
                                 </div>
                             </div>
 
-                            <!-- 4 SMALL TRAINING IMAGES SECTION (Galeria Ampliada) -->
+                            <!-- 4 SMALL TRAINING IMAGES SECTION -->
                             <div class="pt-3 border-t border-previaMid/50">
                                 <p class="text-xs font-extrabold text-previaDark/65 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                                     <i class="fa-solid fa-camera text-previaTeal text-sm"></i> Fotos de Treinamentos Práticos
@@ -233,7 +233,7 @@
                     </div>
                 </div>
 
-                <!-- SLIDE 3: NUMEROS DA PREVIA & PORTFOLIO (Cards Reorganizados) -->
+                <!-- SLIDE 3: NUMEROS DA PREVIA & PORTFOLIO -->
                 <div id="slide-3" class="slide-element absolute inset-0 w-full h-full p-6 lg:p-10 flex flex-col justify-between bg-gradient-to-br from-white to-previaLight opacity-0 pointer-events-none slide-transition overflow-y-auto lg:overflow-y-hidden custom-scrollbar">
                     <div class="my-auto space-y-4 lg:space-y-6 w-full">
                         <div class="text-center space-y-1">
@@ -245,7 +245,7 @@
                             </h2>
                         </div>
                         
-                        <!-- Solutions Cards Grid (Melhor aproveitamento de espaço) -->
+                        <!-- Solutions Cards Grid -->
                         <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                             <div class="bg-white p-5 rounded-2xl border border-previaMid shadow-md flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-xl bg-previaTeal/10 text-previaTeal flex items-center justify-center shrink-0">
@@ -304,20 +304,68 @@
                         </div>
 
                         <!-- Impact Phrase -->
-                        <div class="p-5 bg-previaDark text-white rounded-2xl shadow-md text-center">
-                            <p class="text-sm lg:text-base font-semibold italic text-slate-200">
+                        <div class="p-4 bg-previaDark text-white rounded-2xl shadow-md text-center">
+                            <p class="text-xs lg:text-sm font-semibold italic text-slate-200">
                                 "Mais do que uma empresa de treinamentos, a Previa é um ecossistema de mobilidade que une tecnologia, educação e experiência para transformar a jornada dos condutores e gerar valor para empresas, instituições de ensino e alunos."
                             </p>
                         </div>
                         
                         <!-- Client Logos footer -->
-                        <div class="border-t border-previaMid/60 pt-3 text-center">
-                            <span class="text-[10px] text-previaDark/50 uppercase font-bold tracking-wider block mb-2">Empresas de todo o Brasil confiam na Previa para desenvolver a cultura de segurança viária e formação de condutores</span>
-                            <div class="flex flex-wrap justify-center items-center gap-4 lg:gap-8 opacity-65">
-                                <div class="flex items-center gap-2 font-bold text-xs lg:text-sm"><i class="fa-solid fa-building text-previaTeal"></i> Grupo Educacional Paulista</div>
-                                <div class="flex items-center gap-2 font-bold text-xs lg:text-sm"><i class="fa-solid fa-graduation-cap text-previaTeal"></i> Rede Universitária EAD</div>
-                                <div class="flex items-center gap-2 font-bold text-xs lg:text-sm"><i class="fa-solid fa-truck text-previaTeal"></i> Operadores Logísticos</div>
-                                <div class="flex items-center gap-2 font-bold text-xs lg:text-sm"><i class="fa-solid fa-chalkboard text-previaTeal"></i> Faculdades Integradas</div>
+                        <div class="border-t border-previaMid/60 pt-4 text-center">
+                            <span class="text-xs text-previaDark/60 uppercase font-extrabold tracking-widest block mb-4">
+                                Confia no nosso trabalho
+                            </span>
+                            <div class="flex flex-wrap justify-center items-center gap-6 lg:gap-10 px-4">
+                                <!-- SWISSPORT -->
+                                <div class="flex items-center gap-2 h-8 opacity-80 hover:opacity-100 transition duration-200">
+                                    <span class="font-extrabold text-base tracking-tighter text-black select-none">swissport</span>
+                                    <div class="w-7 h-5 bg-gradient-to-r from-red-600 to-red-500 transform -skew-x-12 flex items-center justify-center rounded-sm">
+                                        <i class="fa-solid fa-globe text-[9px] text-white"></i>
+                                    </div>
+                                </div>
+                                <!-- PEPSICO -->
+                                <div class="flex items-center gap-2 h-8 opacity-80 hover:opacity-100 transition duration-200">
+                                    <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-blue-700 via-white to-red-500 flex items-center justify-center p-0.5 shadow-sm">
+                                        <div class="w-full h-full rounded-full bg-blue-600 border border-white flex items-center justify-center">
+                                            <i class="fa-solid fa-earth-americas text-[9px] text-white animate-spin" style="animation-duration: 20s"></i>
+                                        </div>
+                                    </div>
+                                    <span class="font-black text-sm lg:text-base text-blue-900 tracking-wider">PEPSICO</span>
+                                </div>
+                                <!-- INTUITU CONSULTORIA -->
+                                <div class="flex items-center gap-2 h-8 opacity-80 hover:opacity-100 transition duration-200">
+                                    <div class="flex flex-col text-left">
+                                        <span class="font-black text-sm tracking-widest leading-none text-gray-800">INTUITU</span>
+                                        <span class="text-[7px] font-bold tracking-[0.2em] text-gray-500 leading-none">CONSULTORIA</span>
+                                    </div>
+                                    <i class="fa-solid fa-arrow-trend-up text-amber-500 text-sm transform rotate-12"></i>
+                                </div>
+                                <!-- ORIGEO+ -->
+                                <div class="flex items-center gap-1.5 h-8 opacity-80 hover:opacity-100 transition duration-200">
+                                    <span class="font-black text-sm lg:text-base tracking-wide text-cyan-950">ORÍGEO</span>
+                                    <span class="text-green-600 font-black text-lg leading-none">+</span>
+                                </div>
+                                <!-- FUJIKURA -->
+                                <div class="flex items-center gap-2 h-8 opacity-80 hover:opacity-100 transition duration-200">
+                                    <div class="w-6 h-6 bg-blue-600 rounded flex items-center justify-center shadow-sm">
+                                        <span class="text-white font-black text-xs">F</span>
+                                    </div>
+                                    <span class="font-extrabold text-sm lg:text-base text-gray-900">Fujikura</span>
+                                </div>
+                                <!-- KAVAK -->
+                                <div class="flex items-center h-8 opacity-80 hover:opacity-100 transition duration-200">
+                                    <span class="font-black text-base lg:text-lg tracking-widest text-black">KAVAK</span>
+                                </div>
+                                <!-- NTS -->
+                                <div class="flex items-center gap-2 h-8 opacity-80 hover:opacity-100 transition duration-200">
+                                    <div class="flex gap-0.5 items-end h-5">
+                                        <div class="w-1 h-2.5 bg-red-500 rounded-full"></div>
+                                        <div class="w-1 h-3.5 bg-red-400 rounded-full"></div>
+                                        <div class="w-1 h-4.5 bg-orange-500 rounded-full"></div>
+                                        <div class="w-1 h-3.5 bg-orange-400 rounded-full"></div>
+                                    </div>
+                                    <span class="font-black text-sm lg:text-base text-blue-950 tracking-tighter">nts</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -784,7 +832,7 @@
                     </div>
                 </div>
 
-                <!-- SLIDE 11: RECEITA & SIMULADOR ATIVO (Calculadora Ampliada + Números Gigantes) -->
+                <!-- SLIDE 11: RECEITA & SIMULADOR ATIVO -->
                 <div id="slide-11" class="slide-element absolute inset-0 w-full h-full p-6 lg:p-10 flex flex-col justify-between bg-gradient-to-br from-white via-previaLight to-white opacity-0 pointer-events-none slide-transition overflow-y-auto lg:overflow-y-hidden custom-scrollbar">
                     <div class="my-auto space-y-4 lg:space-y-6 w-full">
                         
